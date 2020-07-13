@@ -1,5 +1,6 @@
 package com.example.fragmenttransaction30032020;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,19 +8,22 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AndroidFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.Random;
+
 public class AndroidFragment extends Fragment {
 
 
+    View v;
+    RelativeLayout mContainer;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_android, container, false);
+        v = inflater.inflate(R.layout.fragment_android, container, false);
+        mContainer = v.findViewById(R.id.relativeBackgroundAndroid);
+        mContainer.setBackgroundColor(Color.rgb(new Random().nextInt(255),new Random().nextInt(255),new Random().nextInt(255)));
+        return v;
     }
 }
